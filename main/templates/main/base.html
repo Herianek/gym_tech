@@ -1,0 +1,97 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}VAPE-G{% endblock %}</title>
+    <link rel="icon" type="static image/png" href="{% static 'images/Favicon.png' %} "/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bevan&display=swap" rel="stylesheet">
+    <!-- Awsome faticon -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <!-- bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+      </script>
+
+    <style type="text/css">
+      .vypln{
+          padding: 50px 0 50px 0;
+      }
+
+      body{
+        background-color: #897853;
+      }
+
+      a:link {
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+      }
+      </style>
+  </head>
+  <body>
+
+  <section id="title">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <a class="navbar-brand" href="/">VAPE-G</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="/onas">O nás</a></li>
+            <li class="nav-item"><a class="nav-link" href="/ceny">Ceny</a></li>
+            <li class="nav-item"><a class="nav-link" href="/formy">Formy</a></li>
+            <li class="nav-item"><a class="nav-link" href="/food">Jídelníček</a></li>
+            <li class="nav-item"><a class="nav-link" href="/training">Tréninky</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+            {% else %}
+            <li class="nav-item"><a class="nav-link" href="/onas">O nás</a></li>
+            <li class="nav-item"><a class="nav-link" href="/ceny">Ceny</a></li>
+            <li class="nav-item"><a class="nav-link" href="/zaregistrujse">Registrace</a></li>
+            <!--<li class="nav-item"><a class="nav-link" href="/register">Registrace</a></li>-->
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            {% endif %}
+          </ul>
+        </div>
+    </nav>
+    {% block content %}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1>Chceš udělat progress? Trénuj s námi!</h1>
+          <button type="submit" class="btn btn-dark btn-lg"><i class="fas fa-heartbeat"></i><a color="red" href="mailto:EMAILADDRESS">Chci trenéra!</a></button>
+          <button type="button" onclick="window.open('https://www.instagram.com/peta.herian/')" class="btn btn-outline-light btn-lg"><i class="fab fa-instagram"></i>Instagram</button>
+        </div>
+        <div class="col-lg-6  col-md-6 col-sm-12">
+          <img style="height: 100%; width: 100%; object-fit: contai" src="{% static 'images/pv_1.png' %}" alt="" width="375" height="225px" class="img_pv">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <img style="height: 100%; width: 100%; object-fit: contai" src="{% static 'images/p_1.png' %}" alt="" width="375" height="225px" class="img_pv">
+        </div>
+
+      </div>
+    </div>
+    {% endblock%}
+
+
+
+  </section>
+
+  </body>
+</html>

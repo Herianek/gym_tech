@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+Jídelníček
+{% endblock %}
+
+{% block content %}
+<div id="content", name="content", class="main">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h1 class="mt-2">Jídelníčky</h1>
+            <hr class="mt-0 mb-4">
+            {% for td in user.jidelnicek.all %}
+            <a href="/{{td.id}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">{{td.name}}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+Jídelníček
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div id="content", name="content", class="main">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h1 class="mt-2">{{ls.name}}</h1>
+            <hr class="mt-0 mb-4">
+                {% for item in ls.jidla_set.all %}    
+
+                <h2>{{item.text}}</h2>
+                <hr class="mt-0 mb-4">
+
+                {% endfor %}
+                <button class="btn btn-dark btn-lg" onclick="goBack()">Go Back</button>
+        </div>
+    </div>
+</div>
+{% else %}
+<h1>Promiň tady nic nenajdeš :(</h1>
+{% endif %}
+{% endblock %}
+
+
